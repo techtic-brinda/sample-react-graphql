@@ -1,0 +1,19 @@
+{
+    "connectionString": "postgres://postgres:root@localhost/orphan-angels-dev",
+    "shadowConnectionString": "postgres://postgres:root@localhost/orphan-angels-shadow",
+    "rootConnectionString": "postgres://postgres:root@localhost/orphan-angels-dev",
+    "pgSettings": {
+        "search_path": "app_public,app_private,app_hidden,public"
+    },
+ 
+    "afterReset": [
+        "afterReset.psql",
+        { "_": "command", "command": "yarn npx --no-install graphile-worker --once" }
+    ],
+    "afterAllMigrations": [
+        
+    ],
+    "afterCurrent": [
+        "afterCurrent.psql"
+    ]
+}
